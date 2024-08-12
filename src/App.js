@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Shop from "./components/Shop";
 
-function App() {
+const App = () => {
+  const [img, setImg] = useState([]);
+  const handleClick = () => {
+    setImg([...img, rendomIMG()]);
+  };
+  function rendomIMG() {
+    const imgArray = ["Cat", "Mercedes", "Download", "Nature"];
+    return imgArray[Math.floor(Math.random() * imgArray.length)];
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={handleClick}>elave et</button>
+      {img.map((item, index) => (
+        <Shop key={index} imgName={item}/>
+      ))}
     </div>
   );
-}
+};
 
 export default App;

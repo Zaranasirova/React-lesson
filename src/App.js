@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import Shop from "./components/Shop";
+
+import axios from "axios";
+import TaskCreate from "./components/TaskCreate";
+import TaskList from "./components/TaskList";
 
 const App = () => {
-  const [img, setImg] = useState([]);
-  const handleClick = () => {
-    setImg([...img, rendomIMG()]);
-  };
-  function rendomIMG() {
-    const imgArray = ["Cat", "Mercedes", "Download", "Nature"];
-    return imgArray[Math.floor(Math.random() * imgArray.length)];
-  }
+
+  
+
   return (
-    <div>
-      <button onClick={handleClick}>elave et</button>
-      {img.map((item, index) => (
-        <Shop key={index} imgName={item}/>
-      ))}
-    </div>
+  <div className="app">
+    <TaskCreate/>
+    <h1>Tasklar</h1>
+    <TaskList/>
+  </div>
   );
 };
 

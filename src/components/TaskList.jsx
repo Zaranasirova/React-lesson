@@ -1,11 +1,13 @@
 import React from "react";
 import TaskShow from "./TaskShow";
-
-const TaskList = ({ tasks }) => {
+import { useContext } from "react";
+import { MainContext } from "../utils/MainContext";
+const TaskList = () => {
+  const { tasks } = useContext(MainContext);
   return (
     <div className="task-list">
-      {tasks.map((item) => (
-        <TaskShow key={item.id} data={item}/>
+      {tasks.map(item => (
+        <TaskShow key={item.id} data={item} />
       ))}
     </div>
   );

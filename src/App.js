@@ -1,29 +1,17 @@
-import React, { useState } from "react";
-
-import axios from "axios";
+import React from "react";
 import TaskCreate from "./components/TaskCreate";
 import TaskList from "./components/TaskList";
+import GlobalContext from "./utils/MainContext";
 
 const App = () => {
-const [tasks,setTasks]=useState([]);
-
-  const createTask = (title, taskDesc) => {
-    const CreatedTasks=[
-      ...tasks,{
-        id:Math.round(Math.random()*999999),
-        title,
-        taskDesc
-      }
-    ];
-    setTasks(CreatedTasks)
-  };
-
   return (
-    <div className="app">
-      <TaskCreate onCreate={createTask} />
+    <GlobalContext>
+      <div className="app">
+      <TaskCreate />
       <h1>Tasklar</h1>
-      <TaskList tasks={tasks}/>
-    </div>
+      <TaskList />
+      </div>
+    </GlobalContext>
   );
 };
 

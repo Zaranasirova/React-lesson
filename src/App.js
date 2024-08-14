@@ -7,7 +7,7 @@ const App = () => {
   return (
     <GlobalContext>
       <div className="app">
-      <TaskCreate />
+      <TaskCreate head={"Zəhmət olmasa task əlavə edin!"} text={"text elave edin!"} buttonText={"Göndər"} headName={"Başlıq"}/>
       <h1>Tasklar</h1>
       <TaskList />
       </div>

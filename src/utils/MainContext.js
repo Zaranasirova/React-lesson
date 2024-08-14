@@ -28,14 +28,23 @@ export const GlobalContext = ({ children }) => {
     setTaskDesc("");
   };
 
+  const deleteTaskList=(id)=>{
+  const filteredTasks=tasks.filter(item=>item.id !==id);
+  setTasks(filteredTasks);
+  }
+ 
+
   const globalData = {
     title,
     taskDesc,
     getFormValue,
     textareaValue,
     handleTaskSubmit,
-    tasks
+    tasks,
+    deleteTaskList
   };
+
+ 
 
   return (
     <MainContext.Provider value={globalData}>{children}</MainContext.Provider>

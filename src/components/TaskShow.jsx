@@ -4,22 +4,44 @@ import { MainContext } from "../utils/MainContext";
 import TaskCreate from "./TaskCreate";
 
 const TaskShow = ({ data }) => {
-  const { deleteTaskList } = useContext(MainContext);
-  const [editTask, setEdtTask] = useState(false);
+  // const { deleteTaskList } = useContext(MainContext);
+
+  // const [showTask, setShowTask] = useState(false);
+  // const handleDelete = () => {
+  //   deleteTaskList(data.id);
+  // };
+
+  // const handleEdit = () => {
+  //   setShowTask(!showTask);
+  // };
+
+  const { deleteTaskList, startEdit, isEditing, editTask } = useContext(MainContext);
+
   const handleDelete = () => {
     deleteTaskList(data.id);
   };
 
   const handleEdit = () => {
-    setEdtTask(!editTask);
+    startEdit(data);
   };
 
+
+
+
+
+
   return (
-    <div>
-      {editTask ? (
-        <TaskCreate head={"Zəhmət olmasa taskı yeniləyin!"} text={"taskı düzənləyin!"} buttonText={"yenilə"} headName={"Başlığı düzənləyin!"} />
+    <div className="task-show">
+      {/* {showTask ? ( */}  {isEditing && editTask?.id === data.id ?(
+        <TaskCreate
+          head={"Zəhmət olmasa taskı yeniləyin!"}
+          text={"taskı düzənləyin!"}
+          buttonText={"yeniliyi saxlayin"}
+          headName={"Başlığı düzənləyin!"}
+          taskFormUpdate={true}
+        />
       ) : (
-        <div className="task-show">
+        <div>
           <h3 className="task-title">Sizin tapşırığınız</h3>
           <p>{data.title}</p>
           <h3 className="task-title">Ediləcək işlər</h3>

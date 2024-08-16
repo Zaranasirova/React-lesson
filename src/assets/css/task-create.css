@@ -6,11 +6,16 @@
 .task {
  width: 450px;
 }
+.task-update{
+  width: 100%;
+}
+
 .app{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
 .task-form label{
 margin: 10px 0;
@@ -28,4 +33,13 @@ margin: 10px 0;
   color: #fff;
   border-radius: 10px;
   font-size: 20px;
+}
+.task-update-button{
+  border: 1px solid mediumorchid;
+  background-color: mediumorchid; 
+  color: #fff;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 10px;
 }

@@ -2,12 +2,12 @@ import React from "react";
 import { useContext } from "react";
 import { MainContext } from "../utils/MainContext";
 
-const TaskCreate = ({head,text,buttonText,headName}) => {
-  const { title, taskDesc, getFormValue, textareaValue, handleTaskSubmit } =
+const TaskCreate = ({ head, text, buttonText, headName, taskFormUpdate }) => {
+  const { title, taskDesc, getFormValue, textareaValue, handleTaskSubmit} =
     useContext(MainContext);
 
   return (
-    <div className="task">
+    <div className={taskFormUpdate ? "task-update" : "task"}>
       <h3>{head}</h3>
       <form className="task-form">
         <label>{headName}</label>
@@ -24,7 +24,10 @@ const TaskCreate = ({head,text,buttonText,headName}) => {
           className="task-input"
           rows={5}
         />
-        <button className="task-button" onClick={handleTaskSubmit}>
+        <button
+          className={taskFormUpdate ? "task-update-button" : "task-button"}
+          onClick={handleTaskSubmit}
+        >
           {buttonText}
         </button>
       </form>

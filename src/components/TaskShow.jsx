@@ -4,16 +4,6 @@ import { MainContext } from "../utils/MainContext";
 import TaskCreate from "./TaskCreate";
 
 const TaskShow = ({ data }) => {
-  // const { deleteTaskList } = useContext(MainContext);
-
-  // const [showTask, setShowTask] = useState(false);
-  // const handleDelete = () => {
-  //   deleteTaskList(data.id);
-  // };
-
-  // const handleEdit = () => {
-  //   setShowTask(!showTask);
-  // };
 
   const { deleteTaskList, startEdit, isEditing, editTask } = useContext(MainContext);
 
@@ -32,7 +22,7 @@ const TaskShow = ({ data }) => {
 
   return (
     <div className="task-show">
-      {/* {showTask ? ( */}  {isEditing && editTask?.id === data.id ?(
+    {isEditing && editTask?.id === data.id ?(
         <TaskCreate
           head={"Zəhmət olmasa taskı yeniləyin!"}
           text={"taskı düzənləyin!"}

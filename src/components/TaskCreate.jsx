@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MainContext } from "../utils/MainContext";
 
 const TaskCreate = ({ head, text, buttonText, headName, taskFormUpdate }) => {
-  const { title, taskDesc, getFormValue, textareaValue, handleTaskSubmit} =
+  const { title, taskDesc, getFormValue, textareaValue, handleTaskSubmit } =
     useContext(MainContext);
 
   return (

@@ -1,16 +1,19 @@
 import React from "react";
-import TaskCreate from "./components/TaskCreate";
-import TaskList from "./components/TaskList";
+import { Routes, Route } from "react-router-dom";
 import GlobalContext from "./utils/MainContext";
+
+import TaskPage from "./Pages/TaskPage";
+import Contact from "./Pages/Contact";
+import Header from "./components/Header";
 
 const App = () => {
   return (
     <GlobalContext>
-      <div className="app">
-      <TaskCreate head={"Zəhmət olmasa task əlavə edin!"} text={"text elave edin!"} buttonText={"Göndər"} headName={"Başlıq"}/>
-      <h1>Tasklar</h1>
-      <TaskList />
-      </div>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<TaskPage />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </GlobalContext>
   );
 };
